@@ -1,29 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Néstor | Frontend Developer</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Welcome</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #CF7486;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .landing-container {
+      text-align: center;
+    }
+
+    .logo {
+      width: 220px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .slogan {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    .enter-btn {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background: #ffb6c1;
+      color: #ffffff;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-block;
+    }
+
+    .enter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
+
 <body>
 
-  <main class="container">
-    <section class="card">
-     <h1>Néstor Sánchez</h1>
-	<p class="subtitle">
-	  Desarrollador frontend enfocado en HTML y CSS.  
-	  Interesado en crear interfaces claras, funcionales y bien estructuradas.
-	</p>
-
-
-      <div class="actions">
-        <a href="https://github.com/lllX321" target="_blank">GitHub</a>
-        <a href="#" class="secondary">Proyectos</a>
-      </div>
-    </section>
-  </main>
+  <div class="landing-container">
+    <img src="logo.JPG" alt="Logo" class="logo">
+    <div class="slogan">"Made with love and flavor"</div>
+    <a href="menuregis.html" class="enter-btn">View Menu</a>
+  </div>
 
 </body>
 </html>
-
