@@ -37,19 +37,25 @@
 
     .slogan {
       font-size: 1.4rem;
-      color: #fff;
+      color: #ffffff;
       margin-bottom: 30px;
       font-family: "Courier New", Courier, monospace;
     }
 
     .enter-btn {
       background: #ffb6c1;
-      color: #fff;
+      color: #ffffff;
       padding: 15px 35px;
+      font-size: 1rem;
       border-radius: 30px;
       text-decoration: none;
-      cursor: pointer;
       display: inline-block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .enter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
     .about-btn {
@@ -58,11 +64,16 @@
       top: 50%;
       transform: translateY(-50%);
       background: #ffb6c1;
+      color: #000;
       padding: 12px 18px;
-      font-family: "Comic Sans MS", cursive;
+      font-family: "Comic Sans MS", cursive, sans-serif;
       border-radius: 12px 0 0 12px;
       cursor: pointer;
       z-index: 2;
+    }
+
+    #about-toggle {
+      display: none;
     }
 
     .about-panel {
@@ -72,33 +83,47 @@
       width: 380px;
       max-width: 90%;
       height: 100vh;
-      background: #fff;
+      background: #ffffff;
       transform: translateX(100%);
       transition: transform 0.4s ease;
       box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-      padding: 40px 30px;
+      padding: 80px 30px 40px;
       overflow-y: auto;
       z-index: 3;
     }
 
-    .about-panel.open {
+    #about-toggle:checked ~ .about-panel {
       transform: translateX(0);
     }
 
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #CF7486;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+
     .about-panel h2 {
-      font-family: "Comic Sans MS", cursive;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: 1.8rem;
       margin-top: 0;
+      color: #000;
     }
 
     .about-panel p {
       font-family: "Courier New", Courier, monospace;
       font-size: 0.95rem;
-      color: #555;
       line-height: 1.6;
+      color: #555;
     }
 
     .socials {
-      margin-top: 30px;
+      margin-top: 40px;
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -107,23 +132,19 @@
     .socials img {
       width: 32px;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    .close-btn {
-      margin-top: 30px;
-      background: #CF7486;
-      color: #fff;
-      padding: 10px 25px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-family: "Comic Sans MS", cursive;
-      border: none;
+    .socials img:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
 
-  <div class="about-btn" id="openAbout">About Us</div>
+  <input type="checkbox" id="about-toggle">
+
+  <label for="about-toggle" class="about-btn">About Us</label>
 
   <div class="landing-container">
     <img src="assets/logo.jpg" class="logo">
@@ -131,23 +152,26 @@
     <a href="menuregis.html" class="enter-btn">View Menu</a>
   </div>
 
-  <div class="about-panel" id="aboutPanel">
+  <div class="about-panel">
+    <label for="about-toggle" class="close-btn">Close</label>
+
     <h2>About Veloura</h2>
 
     <p>
-      Veloura is a sweet little world where homemade flavors meet creative charm.
-      Artisanal desserts, delightful drinks, and crochet-inspired details come together
-      to create memorable experiences.
+      Veloura is a sweet little world where homemade flavors meet creative charm 🍰🧁
+      We bring together artisanal desserts, delightful drinks, and crochet-inspired details
+      that turn every treat into a visual and flavorful experience.
     </p>
 
     <p>
-      Desserts are not just meant to be eaten, but admired, shared, and remembered.
-      Each creation is crafted with care and warmth.
+      Desserts are meant to be admired, shared, and remembered.
+      At Veloura, comforting flavors blend with a soft, playful aesthetic,
+      creating beautiful moments that feel just as good as they taste ✨
     </p>
 
     <p>
       Created by Sarah Álvarez, Regina Castañeda, and Marcela Rodríguez,
-      Veloura turns simple moments into something special.
+      Veloura reflects a shared passion for sweetness, beauty, and handmade charm.
     </p>
 
     <div class="socials">
@@ -158,26 +182,7 @@
         <img src="assets/tiktok.jpg">
       </a>
     </div>
-
-    <button class="close-btn" id="closeAbout">Close</button>
   </div>
-
-  <script>
-    const panel = document.getElementById("aboutPanel");
-    const openBtn = document.getElementById("openAbout");
-    const closeBtn = document.getElementById("closeAbout");
-
-    openBtn.onclick = () => panel.classList.add("open");
-    closeBtn.onclick = () => panel.classList.remove("open");
-
-    document.addEventListener("click", e => {
-      if (panel.classList.contains("open") &&
-          !panel.contains(e.target) &&
-          !openBtn.contains(e.target)) {
-        panel.classList.remove("open");
-      }
-    });
-  </script>
 
 </body>
 </html>
