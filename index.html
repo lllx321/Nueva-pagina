@@ -140,8 +140,6 @@
       border-radius: 25px;
       cursor: pointer;
       font-family: "Comic Sans MS", cursive, sans-serif;
-      z-index: 4;
-      position: relative;
     }
   </style>
 </head>
@@ -157,27 +155,23 @@
     <a href="menuregis.html" class="enter-btn">View Menu</a>
   </div>
 
-  <div class="about-panel">
+  <div class="about-panel" id="aboutPanel">
     <h2>About Veloura</h2>
 
     <p>
       Veloura is a sweet little world where homemade flavors meet creative charm 🍰🧁
       We are a brand that brings together artisanal desserts, delightful drinks, and crochet-inspired details
       that turn every treat into a visual and flavorful experience.
-      Each creation is made with care, love for handmade touches, and a pop of color to brighten your day 🌸🎀
     </p>
 
     <p>
       We believe desserts are not just meant to be eaten, but to be admired, shared, and remembered 💖
-      At Veloura, comforting flavors blend with a soft, playful aesthetic, creating beautiful little moments
-      that feel just as good as they taste ✨🍓
+      At Veloura, comforting flavors blend with a soft, playful aesthetic.
     </p>
 
     <p>
       Veloura was lovingly created by Sarah Álvarez, Regina Castañeda, and Marcela Rodríguez —
-      three creative minds brought together by a shared passion for sweet flavors, beautiful details,
-      and handmade charm. Every creation reflects their care, imagination, and love for making life
-      a little sweeter ✨
+      three creative minds brought together by a shared passion for handmade charm ✨
     </p>
 
     <div class="socials">
@@ -191,6 +185,17 @@
 
     <label for="about-toggle" class="close-btn">Close</label>
   </div>
+
+  <script>
+    const toggle = document.getElementById("about-toggle");
+    const panel = document.getElementById("aboutPanel");
+
+    document.addEventListener("click", (e) => {
+      if (toggle.checked && !panel.contains(e.target) && !e.target.classList.contains("about-btn")) {
+        toggle.checked = false;
+      }
+    });
+  </script>
 
 </body>
 </html>
