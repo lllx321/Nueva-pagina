@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Welcome</title>
-
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -14,10 +13,21 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      overflow: hidden;
+      animation: bgShift 40s ease-in-out infinite;
+    }
+
+    @keyframes bgShift {
+      0% { background: #CF7486; }
+      25% { background: #ffb6c1; }
+      50% { background: #ffd6a5; }
+      75% { background: #ffb6c1; }
+      100% { background: #CF7486; }
     }
 
     .landing-container {
       text-align: center;
+      z-index: 1;
     }
 
     .logo {
@@ -27,14 +37,13 @@
     }
 
     .slogan {
-      font-family: "Comic Sans MS", cursive, sans-serif;
       font-size: 1.4rem;
       color: #ffffff;
       margin-bottom: 30px;
+      font-family: "Courier New", Courier, monospace;
     }
 
     .enter-btn {
-      font-family: "Comic Sans MS", cursive, sans-serif;
       background: #ffb6c1;
       color: #ffffff;
       border: none;
@@ -51,15 +60,134 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
+
+    .about-btn {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ffb6c1;
+      color: #000;
+      padding: 12px 18px;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: 1rem;
+      border-radius: 12px 0 0 12px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    #about-toggle {
+      display: none;
+    }
+
+    .about-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 380px;
+      max-width: 90%;
+      height: 100vh;
+      background: #ffffff;
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+      padding: 40px 30px;
+      overflow-y: auto;
+      z-index: 3;
+    }
+
+    #about-toggle:checked ~ .about-panel {
+      transform: translateX(0);
+    }
+
+    .about-panel h2 {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: 1.8rem;
+      margin-top: 0;
+      color: #000;
+    }
+
+    .about-panel p {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .socials {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .socials img {
+      width: 32px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .socials img:hover {
+      transform: scale(1.2);
+    }
+
+    .close-btn {
+      display: inline-block;
+      margin-top: 30px;
+      background: #CF7486;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
   </style>
 </head>
-
 <body>
 
+  <input type="checkbox" id="about-toggle">
+
+  <label for="about-toggle" class="about-btn">About Us</label>
+
   <div class="landing-container">
-    <img src="assets/logo.jpg" alt="Logo" class="logo">
+    <img src="logo.JPG" alt="Logo" class="logo">
     <div class="slogan">"Made with love and flavor"</div>
     <a href="menuregis.html" class="enter-btn">View Menu</a>
+  </div>
+
+  <div class="about-panel">
+    <h2>About Veloura</h2>
+
+    <p>
+      Veloura is a sweet little world where homemade flavors meet creative charm 🍰🧁
+      We are a brand that brings together artisanal desserts, delightful drinks, and crochet-inspired details
+      that turn every treat into a visual and flavorful experience.
+      Each creation is made with care, love for handmade touches, and a pop of color to brighten your day 🌸🎀
+    </p>
+
+    <p>
+      We believe desserts are not just meant to be eaten, but to be admired, shared, and remembered 💖
+      At Veloura, comforting flavors blend with a soft, playful aesthetic, creating beautiful little moments
+      that feel just as good as they taste ✨🍓
+    </p>
+
+    <p>
+      Veloura was lovingly created by Sarah Álvarez, Regina Castañeda, and Marcela Rodríguez —
+      three creative minds brought together by a shared passion for sweet flavors, beautiful details,
+      and handmade charm. Every creation reflects their care, imagination, and love for making life
+      a little sweeter ✨
+    </p>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/lovelo.ura?igsh=eHBlcm42aXJ5Mzhv" target="_blank">
+        <img src="instagram.png">
+      </a>
+      <a href="https://www.tiktok.com/@lovveloura?_r=1&_t=ZS-93PGrVSr7EO" target="_blank">
+        <img src="tiktok.png">
+      </a>
+    </div>
+
+    <label for="about-toggle" class="close-btn">Close</label>
   </div>
 
 </body>
